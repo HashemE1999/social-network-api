@@ -14,14 +14,15 @@ const userSchema = new mongoose.Schema({
     type: String, 
     unique: true, 
     required: true,
+    match:[/^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/,"Email is not valid"]
     // Validator function that utilizes regex to filter for emails
-    validate: {
-      validator: function(v) {
-        return /\^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/.test(v);
-      },
-      message: props => `${props.value} is not a valid email address!`
-    },
-    required: [true, 'User email address required']
+    // validate: {
+    //   validator: function(v) {
+    //     return /\^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/.test(v);
+    //   },
+    //   message: props => `${props.value} is not a valid email address!`
+    // },
+    // required: [true, 'User email address required']
   },
   thoughts: [
     // Array uses objects from the Thoughts model

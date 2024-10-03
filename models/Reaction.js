@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 // Construct a new instance of the schema class
 const reactionSchema = new mongoose.Schema({
     // Configure individual properties using Schema Types

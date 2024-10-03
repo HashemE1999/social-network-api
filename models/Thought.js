@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 // Import reactionSchema
 const reactionSchema = require('./Reaction');
 // Construct a new instance of the schema class
