@@ -1,20 +1,23 @@
 // Require schema and model from mongoose
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 // Construct a new instance of the schema class
 const userSchema = new mongoose.Schema({
   // Configure individual properties using Schema Types
   username: {
-    type: String, 
-    unique: true, 
+    type: String,
+    unique: true,
     required: true,
-    trimmed: true
+    trimmed: true,
   },
-  email: { 
-    type: String, 
-    unique: true, 
+  email: {
+    type: String,
+    unique: true,
     required: true,
-    match:[/^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/,"Email is not valid"]
+    match: [
+      /^([a-z0-9_.-]+)@([\da-z.-]+).([a-z.]{2,6})$/,
+      "Email is not valid",
+    ],
     // Validator function that utilizes regex to filter for emails
     // validate: {
     //   validator: function(v) {
@@ -27,19 +30,36 @@ const userSchema = new mongoose.Schema({
   thoughts: [
     // Array uses objects from the Thoughts model
     {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Thought",
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Thought",
     },
   ],
   friends: [
     {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
   ],
-});
+},
+{
+  // Declaring virtual
+  toJSON: {
+    virtuals: true,
+  },
+  id: false,
+},
+);
+
+userSchema
+  .virtual('friendCount')
+  // Getter
+  .get(function () {
+    let friends = this.friends;
+    console.log(friends)
+    return `${friends.length}`;
+  })
 
 // Using mongoose.model() to compile a model based on the schema 'userSchema'
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
