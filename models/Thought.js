@@ -16,7 +16,7 @@ const thoughtSchema = new mongoose.Schema(
       default: Date.now,
       // format Date
     },
-    thoughtname: {
+    username: {
       type: String,
       required: true,
     },
