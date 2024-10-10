@@ -12,7 +12,6 @@
 - [License](#license)
 
   - [Contributions](#contributions)
-  - [Testing](#testing)
   - [Contacts](#contacts)
 
   ## Installation
@@ -21,14 +20,14 @@
   ## Usage
   To serve as a connection to MongoDB for a prototype social media website.
 
-    ## License
-This project is licensed under the MIT license.
+  ## License
+  This project is licensed under the MIT license.
 
   ## Contributions
   Access the public GitHub repo.
 
-  ## Testing
-  Use Insomnia
+  ## Walkthrough Video
+  Attached is the link to a walkthrough video demonstrating the functionality of the app: https://drive.google.com/file/d/1MjN1nOQgXbHfn0xxrah4XeZwc9fp9K-e/view
 
   ## Contacts
   For questions and/or business inquiries, please reach out to me at:
